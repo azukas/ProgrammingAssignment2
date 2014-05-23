@@ -4,14 +4,14 @@
 
 ## Function makeCacheMatrix:
 ##   The makeCacheMatrix function is an object-oriented like class with several
-##   public-like methods for constructing and managing a cache matrix object. 
+##   public-like methods for constructing and managing a cached matrix object. 
 ##   The inital call to makeCacheMatrix creates an object with an empty matrix.
 ##   The following methods are exposed:
 ##   set - constructor for a cacheMatrix object that accepts a matrix as input
 ##   get - returns the original matrix 
 ##   setsolve - constructor for storing the matrix inverse, does not actually
 ##              have knowledge of how a matrix inverse is calculated, just
-##              store the result of the matrix inverse computation
+##              stores the result of the matrix inverse computation
 ##   getsolve - returns the inverse of the matrix stored by a call to setsolve
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -52,6 +52,8 @@ makeCacheMatrix <- function(x = matrix()) {
 ## the input object) it is immediately returned. Otherwise the matrix is 
 ## retreieved from the input object (via the get method), the matrix inverse is
 ## calculated and cached in the input object (using the setsolve method).
+## 
+## Note: that this function does not test if there is an inverse the matrix.
 
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
